@@ -1,11 +1,12 @@
 .form-container {
   width: 600px;
-  height: 550px;
+  height: 530px;
   border-radius: 8px;
   border: 1px solid #95a0a7;
   margin: 25px auto;
   display: flex;
   justify-content: center;
+  box-shadow: -8px 8px #FFE0B3;
 }
 .form-title {
   font-family: "Lato";
@@ -34,7 +35,7 @@
   height: 35px;
   border: 1px solid #95A0A7;
   border-radius: 5px;
-  
+  padding: 5px;
   font-size: 20px;
 }
 .submit-btn{
@@ -46,6 +47,10 @@
     border: none;
     font-size: 20px;
     margin-top: 20px;
+    cursor: pointer;
+}
+.submit-btn:hover{
+   background-color: #e7ad57;
 }
 .link {
     color : #FF9900;
