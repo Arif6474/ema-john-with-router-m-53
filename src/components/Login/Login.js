@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import './Login.css'
 
@@ -12,8 +12,12 @@ const Login = () => {
         signInWithEmailAndPassword,
         user,
         loading,
-        error,
+        error
       ] = useSignInWithEmailAndPassword(auth);
+
+     
+      const location = useLocation();
+      const from = location.state?.from?.pathname || "/";
 
 const handleEmailBlur = (event) => {
     setEmail(event.target.value);
@@ -23,7 +27,7 @@ const handlePasswordBlur = event => {
 }
 
 if(user){
-    navigate('/orders')
+    navigate(from, {replace: true});
 }
 
 const handleUserSignIn = event => {
@@ -38,11 +42,11 @@ const handleUserSignIn = event => {
                 <form onSubmit={handleUserSignIn} >
                     <div className="input-group">
                         <label className="label" htmlFor="email">Email</label>
-                        <input onBlur={handleEmailBlur} className="form-input" type="email" name="email" id="" required />
+                        <input onBlur={handleEmailBlur} className="form-input" type="email" name="email"  required />
                     </div>
                     <div className="input-group">
                         <label className="label" htmlFor="password">Password</label>
-                    <input onBlur={handlePasswordBlur} className="form-input" type="password" name="password" id="" required/>
+                    <input onBlur={handlePasswordBlur} className="form-input" type="password" name="password"  required/>
                     </div>
                     <p style={{color: 'red'}}>{error?.message}</p>
                     {

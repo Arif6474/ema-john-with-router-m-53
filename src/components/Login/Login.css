@@ -1,6 +1,6 @@
 .form-container {
   width: 600px;
-  height: 530px;
+ 
   border-radius: 8px;
   border: 1px solid #95a0a7;
   margin: 25px auto;
@@ -87,7 +87,7 @@
     border-radius: 5px; 
     border: 1px solid #94a3aa;
     font-size: 15px;
-    margin-top: 20px;
+    margin: 20px auto;
 }
 .google-btn img{
     width: 18px;
